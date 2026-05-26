@@ -3,6 +3,7 @@ import { generateSalesAssistantDraft } from "@/lib/business";
 export async function POST(request) {
   const body = await request.json().catch(() => ({}));
   const need = typeof body.need === "string" ? body.need.trim() : "";
+  const knowledgeItems = Array.isArray(body.knowledgeItems) ? body.knowledgeItems : [];
 
   if (need.length < 8) {
     return Response.json(
@@ -11,5 +12,5 @@ export async function POST(request) {
     );
   }
 
-  return Response.json(generateSalesAssistantDraft(need));
+  return Response.json(generateSalesAssistantDraft(need, knowledgeItems));
 }

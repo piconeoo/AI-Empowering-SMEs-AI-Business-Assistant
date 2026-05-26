@@ -76,3 +76,38 @@ export const dashboardActionItems = [
   "提醒王销售处理星河建材尾款，避免到期后再追。",
   "把北辰包装的试用需求整理为低价试点方案，争取本周成交。",
 ];
+
+export const mockKnowledgeItems = [
+  {
+    id: "kb-product-light-erp",
+    category: "product",
+    title: "轻量进销存与报价跟进方案",
+    content: "适合小型工厂、贸易公司和批发企业，包含产品资料、库存台账、报价管理、客户跟进、回款提醒和老板日报。",
+    keywords: ["小型工厂", "进销存", "库存", "报价管理", "客户跟进", "微信通知"],
+    updatedAt: "2026-05-27",
+  },
+  {
+    id: "kb-pricing-30k-pilot",
+    category: "pricing",
+    title: "3 万以内试点报价规则",
+    content: "预算 3 万以内时，建议交付知识库、AI 销售助手、报价跟进、客户台账和老板日报，试运行周期为 30 天。",
+    keywords: ["3 万以内", "试点", "报价规则", "老板日报"],
+    updatedAt: "2026-05-27",
+  },
+  {
+    id: "kb-faq-wechat",
+    category: "faq",
+    title: "是否支持企业微信提醒",
+    content: "第一阶段支持通过企业微信或钉钉机器人发送销售未跟进、回款到期和客户投诉提醒。",
+    keywords: ["企业微信", "微信", "钉钉", "提醒", "通知"],
+    updatedAt: "2026-05-27",
+  },
+  {
+    id: "kb-contract-pilot",
+    category: "contract",
+    title: "试点项目合同边界",
+    content: "试点合同建议写清客户资料数量、产品资料数量、销售账号数量、试运行周期、验收指标和后续扩展范围。",
+    keywords: ["合同模板", "试点", "验收", "交付边界"],
+    updatedAt: "2026-05-27",
+  },
+];

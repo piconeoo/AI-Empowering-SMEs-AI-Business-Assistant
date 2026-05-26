@@ -34,6 +34,7 @@ body {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -136,7 +137,8 @@ h3 {
 
 .workspace-grid,
 .split-grid,
-.assistant-section {
+.assistant-section,
+.knowledge-section {
   display: grid;
   gap: 16px;
   margin-top: 16px;
@@ -152,6 +154,10 @@ h3 {
 
 .assistant-section {
   grid-template-columns: 420px minmax(0, 1fr);
+}
+
+.knowledge-section {
+  grid-template-columns: minmax(0, 1fr) 380px;
 }
 
 .panel {
@@ -266,33 +272,114 @@ h3 {
   white-space: nowrap;
 }
 
-.assistant-form {
+.knowledge-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.knowledge-stat {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--surface-subtle);
+}
+
+.knowledge-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.knowledge-stat strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.knowledge-list {
   display: grid;
   gap: 10px;
 }
 
-.assistant-form label {
+.knowledge-item {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.knowledge-item div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.knowledge-item p {
+  color: #263446;
+  line-height: 1.6;
+}
+
+.knowledge-item small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.category-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 0 8px;
+  background: #eff6ff;
+  color: var(--blue);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.assistant-form,
+.knowledge-form {
+  display: grid;
+  gap: 10px;
+}
+
+.assistant-form label,
+.knowledge-form label {
   color: var(--muted);
   font-size: 13px;
   font-weight: 600;
 }
 
-.assistant-form textarea {
+.assistant-form textarea,
+.knowledge-form input,
+.knowledge-form select,
+.knowledge-form textarea {
   width: 100%;
-  resize: vertical;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 12px;
+  background: #ffffff;
   color: var(--text);
   line-height: 1.6;
 }
 
-.assistant-form textarea:focus {
+.assistant-form textarea,
+.knowledge-form textarea {
+  resize: vertical;
+}
+
+.assistant-form textarea:focus,
+.knowledge-form input:focus,
+.knowledge-form select:focus,
+.knowledge-form textarea:focus {
   border-color: var(--blue);
   outline: 3px solid rgba(37, 99, 235, 0.12);
 }
 
-.assistant-form button {
+.assistant-form button,
+.knowledge-form button {
   min-height: 42px;
   border: 0;
   border-radius: 8px;
@@ -302,7 +389,8 @@ h3 {
   font-weight: 700;
 }
 
-.assistant-form button:disabled {
+.assistant-form button:disabled,
+.knowledge-form button:disabled {
   cursor: wait;
   opacity: 0.7;
 }
@@ -322,6 +410,31 @@ h3 {
   line-height: 1.7;
 }
 
+.reference-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reference-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--surface-subtle);
+}
+
+.reference-item span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.reference-item strong {
+  font-size: 13px;
+}
+
 .empty-state {
   border: 1px dashed var(--line);
   border-radius: 8px;
@@ -337,8 +450,13 @@ h3 {
 
   .workspace-grid,
   .split-grid,
-  .assistant-section {
+  .assistant-section,
+  .knowledge-section {
     grid-template-columns: 1fr;
+  }
+
+  .knowledge-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -358,5 +476,9 @@ h3 {
 
   .metric-card {
     min-height: 86px;
+  }
+
+  .knowledge-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
